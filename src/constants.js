@@ -1,1 +1,2 @@
-export const LOGORPT = `${import.meta.env.VITE_ASSETS_BASE_URL}assets/images/logorpt.png`;
+import logo from './assets/images/logorpt.png';
+export const LOGORPT = logo;
