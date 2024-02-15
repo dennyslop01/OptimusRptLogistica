@@ -8,9 +8,19 @@ export const checkingAuthentication = () => {
 }
 
 export const startMicrosoftSignIn = () => {
+    return async( dispatch ) => {
 
-    return undefined;
-
+        dispatch( checkingCredentials() );
+        try{
+            const { token } = await clientApi.get('/auth/microsoft',{});
+            //const { data } = await clientApi.post('/auth/loginSSO',{});
+            //localStorage.setItem('token', data.token );
+            //localStorage.setItem('token-init-date', new Date().getTime() );
+            //dispatch( login( { data } ));
+        } catch ( error ){
+            return dispatch( logout( error ) );
+        }
+    }
 }
 
 export const startLoginWithEmailPassword = ({ email, password }) => {
